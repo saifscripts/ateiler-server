@@ -11,6 +11,6 @@ router
         validateRequest(ProductValidations.createProductValidationSchema),
         ProductControllers.createProduct,
     )
-    .get(ProductControllers.getAllProducts);
+    .get(ProductControllers.getProducts);
 
 export const ProductRoutes = router;

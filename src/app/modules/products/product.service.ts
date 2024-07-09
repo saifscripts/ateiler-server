@@ -10,7 +10,7 @@ const createProductIntoDB = async (payload: IProduct) => {
     return newProduct;
 };
 
-const getAllProductsFromDB = async (query: Record<string, unknown>) => {
+const getProductsFromDB = async (query: Record<string, unknown>) => {
     const productQuery = new QueryBuilder(Product.find().populate(''), query)
         .search(ProductSearchableFields)
         .filter()
@@ -29,5 +29,5 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
 
 export const ProductServices = {
     createProductIntoDB,
-    getAllProductsFromDB,
+    getProductsFromDB,
 };

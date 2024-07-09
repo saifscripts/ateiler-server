@@ -6,12 +6,11 @@ import { ProductValidations } from './product.validation';
 const router = express.Router();
 
 router
-    .route('/create-product')
+    .route('/')
     .post(
         validateRequest(ProductValidations.createProductValidationSchema),
         ProductControllers.createProduct,
-    );
-
-router.route('/').get(ProductControllers.getAllProducts);
+    )
+    .get(ProductControllers.getAllProducts);
 
 export const ProductRoutes = router;

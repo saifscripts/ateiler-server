@@ -56,8 +56,43 @@ const getSingleProductFromDB = async (id: string) => {
     return product;
 };
 
+const updateSingleProductIntoDB = async (
+    id: string,
+    payload: Partial<IProduct>,
+) => {
+    const updatedProduct = await Product.findByIdAndUpdate(id, payload, {
+        new: true,
+        runValidators: true,
+    });
+
+    if (!updatedProduct) {
+        throw new AppError(httpStatus.NOT_FOUND, 'Product not found!');
+    }
+
+    return updatedProduct;
+};
+
+const deleteSingleProductFromDB = async (id: string) => {
+    const deletedProduct = await Product.findByIdAndUpdate(
+        id,
+        { isDeleted: true },
+        {
+            new: true,
+            runValidators: true,
+        },
+    );
+
+    if (!deletedProduct) {
+        throw new AppError(httpStatus.NOT_FOUND, 'Product not found!');
+    }
+
+    return deletedProduct;
+};
+
 export const ProductServices = {
     createProductIntoDB,
     getProductsFromDB,
     getSingleProductFromDB,
+    updateSingleProductIntoDB,
+    deleteSingleProductFromDB,
 };

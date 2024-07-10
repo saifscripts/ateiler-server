@@ -7,7 +7,7 @@ const createProduct = catchAsync(async (req, res) => {
     const newProduct = await ProductServices.createProductIntoDB(req.body);
 
     sendResponse(res, {
-        statusCode: httpStatus.OK,
+        statusCode: httpStatus.CREATED,
         message: 'Product created successfully!',
         data: newProduct,
     });
@@ -33,8 +33,35 @@ const getSingleProduct = catchAsync(async (req, res) => {
     });
 });
 
+const updateSingleProduct = catchAsync(async (req, res) => {
+    const updatedProduct = await ProductServices.updateSingleProductIntoDB(
+        req.params.id,
+        req.body,
+    );
+
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        message: 'Product updated successfully!',
+        data: updatedProduct,
+    });
+});
+
+const deleteSingleProduct = catchAsync(async (req, res) => {
+    const deletedProduct = await ProductServices.deleteSingleProductFromDB(
+        req.params.id,
+    );
+
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        message: 'Product deleted successfully!',
+        data: deletedProduct,
+    });
+});
+
 export const ProductControllers = {
     createProduct,
     getProducts,
     getSingleProduct,
+    updateSingleProduct,
+    deleteSingleProduct,
 };

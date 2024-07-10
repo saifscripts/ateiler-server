@@ -13,6 +13,13 @@ router
     )
     .get(ProductControllers.getProducts);
 
-router.route('/:id').get(ProductControllers.getSingleProduct);
+router
+    .route('/:id')
+    .get(ProductControllers.getSingleProduct)
+    .put(
+        validateRequest(ProductValidations.updateProductValidationSchema),
+        ProductControllers.updateSingleProduct,
+    )
+    .delete(ProductControllers.deleteSingleProduct);
 
 export const ProductRoutes = router;

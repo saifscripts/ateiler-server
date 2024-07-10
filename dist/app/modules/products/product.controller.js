@@ -20,20 +20,47 @@ const product_service_1 = require("./product.service");
 const createProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const newProduct = yield product_service_1.ProductServices.createProductIntoDB(req.body);
     (0, sendResponse_1.default)(res, {
-        statusCode: http_status_1.default.OK,
+        statusCode: http_status_1.default.CREATED,
         message: 'Product created successfully!',
         data: newProduct,
     });
 }));
-const getAllProducts = (0, catchAsync_1.default)((_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const products = yield product_service_1.ProductServices.getAllProductsFromDB();
+const getProducts = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const products = yield product_service_1.ProductServices.getProductsFromDB(req.query);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         message: 'Products fetched successfully!',
         data: products,
     });
 }));
+const getSingleProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const product = yield product_service_1.ProductServices.getSingleProductFromDB(req.params.id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        message: 'Product fetched successfully!',
+        data: product,
+    });
+}));
+const updateSingleProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const updatedProduct = yield product_service_1.ProductServices.updateSingleProductIntoDB(req.params.id, req.body);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        message: 'Product updated successfully!',
+        data: updatedProduct,
+    });
+}));
+const deleteSingleProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const deletedProduct = yield product_service_1.ProductServices.deleteSingleProductFromDB(req.params.id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        message: 'Product deleted successfully!',
+        data: deletedProduct,
+    });
+}));
 exports.ProductControllers = {
     createProduct,
-    getAllProducts,
+    getProducts,
+    getSingleProduct,
+    updateSingleProduct,
+    deleteSingleProduct,
 };

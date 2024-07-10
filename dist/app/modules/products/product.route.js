@@ -10,7 +10,12 @@ const product_controller_1 = require("./product.controller");
 const product_validation_1 = require("./product.validation");
 const router = express_1.default.Router();
 router
-    .route('/create-product')
-    .post((0, validateRequest_1.default)(product_validation_1.ProductValidations.productValidationSchema), product_controller_1.ProductControllers.createProduct);
-router.route('/').get(product_controller_1.ProductControllers.getAllProducts);
+    .route('/')
+    .post((0, validateRequest_1.default)(product_validation_1.ProductValidations.createProductValidationSchema), product_controller_1.ProductControllers.createProduct)
+    .get(product_controller_1.ProductControllers.getProducts);
+router
+    .route('/:id')
+    .get(product_controller_1.ProductControllers.getSingleProduct)
+    .put((0, validateRequest_1.default)(product_validation_1.ProductValidations.updateProductValidationSchema), product_controller_1.ProductControllers.updateSingleProduct)
+    .delete(product_controller_1.ProductControllers.deleteSingleProduct);
 exports.ProductRoutes = router;

@@ -46,7 +46,18 @@ const getProductsFromDB = async (query: Record<string, unknown>) => {
     return products;
 };
 
+const getSingleProductFromDB = async (id: string) => {
+    const product = await Product.findById(id);
+
+    if (!product) {
+        throw new AppError(httpStatus.NOT_FOUND, 'Product not found!');
+    }
+
+    return product;
+};
+
 export const ProductServices = {
     createProductIntoDB,
     getProductsFromDB,
+    getSingleProductFromDB,
 };

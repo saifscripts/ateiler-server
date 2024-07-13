@@ -7,7 +7,7 @@ const createCategoryIntoDB = async (payload: ICategory) => {
 };
 
 const getCategoriesFromDB = async () => {
-    const categories = Category.find();
+    const categories = Category.find().sort('-createdAt');
     return categories;
 };
 

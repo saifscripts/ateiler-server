@@ -3,8 +3,15 @@ import { ICategory } from './category.interface';
 
 const categorySchema = new Schema<ICategory>(
     {
-        title: { type: String, required: true },
+        title: { type: String, trim: true, required: true },
         thumbnail: { type: String, required: true },
+        slug: {
+            type: String,
+            unique: true,
+            default: function () {
+                return this.title.trim().toLowerCase().split(' ').join('-');
+            },
+        },
         isDeleted: { type: Boolean, default: false },
     },
     {

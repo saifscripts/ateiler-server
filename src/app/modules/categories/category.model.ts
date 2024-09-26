@@ -5,13 +5,7 @@ const categorySchema = new Schema<ICategory>(
     {
         title: { type: String, trim: true, required: true },
         thumbnail: { type: String, required: true },
-        slug: {
-            type: String,
-            unique: true,
-            default: function () {
-                return this.title.trim().toLowerCase().split(' ').join('-');
-            },
-        },
+        slug: { type: String, required: true, unique: true },
         isDeleted: { type: Boolean, default: false },
     },
     {

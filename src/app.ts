@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
 import httpStatus from 'http-status';
+import config from './app/config';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import notFound from './app/middlewares/notFound';
 import router from './app/routes';
@@ -8,7 +9,7 @@ import router from './app/routes';
 const app = express();
 
 // parsers
-app.use(cors());
+app.use(cors({ origin: [config.client_url!] }));
 app.use(express.json());
 
 // routes

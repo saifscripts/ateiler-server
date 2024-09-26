@@ -39,10 +39,6 @@ const getProductsFromDB = async (query: Record<string, unknown>) => {
 
     const products = await productQuery.modelQuery;
 
-    if (!products.length) {
-        throw new AppError(httpStatus.NOT_FOUND, 'No product found!');
-    }
-
     return products;
 };
 

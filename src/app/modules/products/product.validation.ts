@@ -19,16 +19,19 @@ const ProductSchema = z.object({
             required_error: 'Description is required!',
         })
         .min(1, 'Description is required!'),
-    imageUrls: z.array(
-        z
-            .string({
-                required_error: 'Image Url is invalid!',
-            })
-            .url('Image Url is invalid!'),
-        {
-            required_error: 'Image is Required!',
-        },
-    ),
+    imageUrls: z
+        .array(
+            z
+                .string({
+                    required_error: 'Image Url is invalid!',
+                    invalid_type_error: 'Invalid image!',
+                })
+                .url('Image Url is invalid!'),
+            {
+                required_error: 'Image is required!',
+            },
+        )
+        .min(1, 'Image is required!'),
     price: z
         .string({
             required_error: 'Price is required!',

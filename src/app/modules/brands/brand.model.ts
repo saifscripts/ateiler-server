@@ -4,6 +4,7 @@ import { IBrand } from './brand.interface';
 const brandSchema = new Schema<IBrand>(
     {
         name: { type: String, required: true },
+        logo: { type: String, required: true },
         isDeleted: { type: Boolean, default: false },
     },
     {

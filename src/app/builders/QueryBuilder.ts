@@ -25,7 +25,12 @@ class QueryBuilder<T> {
         const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
         excludeFields.forEach((field) => delete _query[field]);
 
-        this.modelQuery = this.modelQuery.find(_query as FilterQuery<T>);
+        const queryString = JSON.stringify(_query).replace(
+            /\b(gt|gte|lt|lte)\b/g,
+            (match) => `$${match}`,
+        );
+
+        this.modelQuery = this.modelQuery.find(JSON.parse(queryString));
         return this;
     }
 

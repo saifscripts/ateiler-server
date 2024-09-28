@@ -5,7 +5,7 @@ export interface IProduct {
     category: Types.ObjectId;
     description: string;
     imageUrls: string[];
-    price: string;
+    price: number;
     discount: string;
     stockQuantity: string;
     brand: Types.ObjectId;

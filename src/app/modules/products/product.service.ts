@@ -27,7 +27,7 @@ const createProductIntoDB = async (payload: IProduct) => {
 const getProductsFromDB = async (query: Record<string, unknown>) => {
     const productQuery = new QueryBuilder(
         Product.find()
-            .populate({ path: 'category', select: 'title thumbnail' })
+            .populate({ path: 'category', select: 'title' })
             .populate({ path: 'brand', select: 'name' }),
         query,
     )

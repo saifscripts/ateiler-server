@@ -5,6 +5,7 @@ const zod_1 = require("zod");
 const createBrandValidationSchema = zod_1.z.object({
     body: zod_1.z.object({
         name: zod_1.z.string().min(1),
+        logo: zod_1.z.string().url(),
     }),
 });
 exports.BrandValidations = {

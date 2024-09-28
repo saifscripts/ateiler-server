@@ -4,6 +4,7 @@ exports.Brand = void 0;
 const mongoose_1 = require("mongoose");
 const brandSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
+    logo: { type: String, required: true },
     isDeleted: { type: Boolean, default: false },
 }, {
     timestamps: true,

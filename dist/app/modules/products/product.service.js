@@ -33,19 +33,15 @@ const createProductIntoDB = (payload) => __awaiter(void 0, void 0, void 0, funct
     return newProduct;
 });
 const getProductsFromDB = (query) => __awaiter(void 0, void 0, void 0, function* () {
-    const productQuery = new QueryBuilder_1.default(product_model_1.Product.find(), 
-    // .populate({ path: 'category', select: 'title' })
-    // .populate({ path: 'brand', select: 'name' }),
-    query)
+    const productQuery = new QueryBuilder_1.default(product_model_1.Product.find()
+        .populate({ path: 'category', select: 'title' })
+        .populate({ path: 'brand', select: 'name' }), query)
         .search(product_constant_1.ProductSearchableFields)
         .filter()
         .sort()
         .paginate()
         .fields();
     const products = yield productQuery.modelQuery;
-    if (!products.length) {
-        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'No product found!');
-    }
     return products;
 });
 const getSingleProductFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {

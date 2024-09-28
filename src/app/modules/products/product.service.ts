@@ -43,7 +43,7 @@ const getProductsFromDB = async (query: Record<string, unknown>) => {
 };
 
 const getSingleProductFromDB = async (id: string) => {
-    const product = await Product.findById(id);
+    const product = await Product.findById(id).populate('category brand');
 
     if (!product) {
         throw new AppError(httpStatus.NOT_FOUND, 'Product not found!');

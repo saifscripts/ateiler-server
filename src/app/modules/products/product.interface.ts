@@ -7,7 +7,7 @@ export interface IProduct {
     imageUrls: string[];
     price: number;
     discount: string;
-    stockQuantity: string;
+    stockQuantity: number;
     brand: Types.ObjectId;
     rating: number;
     isDeleted: boolean;

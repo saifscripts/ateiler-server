@@ -13,7 +13,11 @@ const productSchema = new mongoose_1.Schema({
     imageUrls: [{ type: String, required: true }],
     price: { type: Number, required: true },
     discount: { type: String, required: true },
-    stockQuantity: { type: String, required: true },
+    stockQuantity: {
+        type: Number,
+        required: true,
+        min: [0, 'Stock quantity cannot be less than 0'],
+    },
     brand: { type: mongoose_1.Schema.Types.ObjectId, ref: 'Brand', required: true },
     rating: { type: Number, required: true },
     isDeleted: { type: Boolean, default: false },

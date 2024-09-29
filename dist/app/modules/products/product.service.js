@@ -45,7 +45,7 @@ const getProductsFromDB = (query) => __awaiter(void 0, void 0, void 0, function*
     return products;
 });
 const getSingleProductFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const product = yield product_model_1.Product.findById(id);
+    const product = yield product_model_1.Product.findById(id).populate('category brand');
     if (!product) {
         throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Product not found!');
     }

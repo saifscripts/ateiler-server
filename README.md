@@ -1,26 +1,30 @@
 # Ateiler || Sporting Goods E-commerce Platform
 
-### [Live URL (Client)](https://ateiler-alpha.vercel.app)
+### [Live URL](https://ateiler-alpha.vercel.app) | [Base URL (Server)](https://ateiler-server.vercel.app)
 
-### [Live URL (Server)](ateiler-server.vercel.app)
+### [Frontend Repository](https://github.com/saifscripts/ateiler-client)
 
 ## Introduction
 
-Welcome to Ateiler, your one-stop shop for a wide range of sporting equipment and accessories. This platform offers an intuitive interface for both customers and administrators, streamlining the shopping and product management experience.
+Atelier provides a wide range of sports equipment and accessories. This platform's user-friendly design makes shopping and product management easier for customers and administrators.
 
 ## Project Description
 
-This project is a backend system of the e-commerce website designed for a sporting goods business. It features crud operations for products, categories and brands to provide seamless experience to the users.
+This project is a backend system for an e-commerce website that sells sporting goods. Provides APIs for CRUD operations, including product browsing, filtering and pagination, product management, checkout, and more.
 
 ## Features
 
--   Create, Read, Update and Delete functionalities for products
--   Create, Read, Update and Delete functionalities for categories
--   Create, Read, Update and Delete functionalities for brands
+-   CRUD operations for products (add, update, delete, view).
+-   Filter, sort, and search products by name, category, price, brand, or rating.
+-   Store and retrieve order details, including user info and delivery address.
+-   Update product stock upon successful order placement.
+-   CRUD operations for category management (add & view).
+-   CRUD operations for brand management (add & view).
+-   Implement server-side validation for all incoming requests.
 
 ## Technology Stack
 
--   Node.js, Express.js, TypeScript, Mongoose
+-   Node.js, Express.js, TypeScript, Mongoose, Zod
 
 ## Installation Guideline
 

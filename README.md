@@ -24,7 +24,7 @@ This project is a backend system for an e-commerce website that sells sporting g
 
 ## Technology Stack
 
--   Node.js, Express.js, TypeScript, Mongoose, Zod
+-   Express.js, TypeScript, Mongoose, Zod
 
 ## Installation Guideline
 

@@ -30,6 +30,15 @@ This project is a backend system for an e-commerce website that sells sporting g
 
 Follow this step-by-step guide to run the server on your local machine.
 
+## Installation Steps
+
+Follow this step-by-step guide to run the server on your local machine.
+
+### 0. Prerequisites
+
+-   Node.js and npm/yarn installed.
+-   Any Web browser to view the application.
+
 ### 1. Clone the Repository
 
 First, clone the repository to your machine using the following command:
@@ -66,7 +75,7 @@ npm install
 
 ```
 
-### 4. Add a .env File
+### 4. Add a Configuration File
 
 To run the app, create a `.env` file in the root folder with the following properties (I have included a few demo values here for testing):
 

@@ -30,10 +30,6 @@ This project is a backend system for an e-commerce website that sells sporting g
 
 Follow this step-by-step guide to run the server on your local machine.
 
-## Installation Steps
-
-Follow this step-by-step guide to run the server on your local machine.
-
 ### 0. Prerequisites
 
 -   Node.js and npm/yarn installed.
